@@ -44,15 +44,16 @@ pip install -r requirements.txt
 
 ```
 snowcamp-docling/
-├── converter.ipynb              # PDF to Markdown conversion notebook
-├── questions-and-answers.ipynb # Q&A comparison notebook
-├── QandAFunctions.py           # Question-answering utility functions
-├── ProcessingFunctions.py      # PDF conversion and file processing utilities
-├── config.env                  # Environment variables (create this)
-├── requirements.txt            # Python dependencies
-├── report.pdf                  # Sample PDF document
+├── converter.ipynb                 # PDF to Markdown conversion notebook
+├── questions-and-answers-md.ipynb  # Q&A notebook for markdown file
+├── questions-and-answers-pdf.ipynb # Q&A notebook for pdf file
+├── QandAFunctions.py               # Question-answering utility functions
+├── ProcessingFunctions.py          # PDF conversion and file processing utilities
+├── config.env                      # Environment variables (create this)
+├── requirements.txt                # Python dependencies
+├── report.pdf                      # Sample PDF document
 └── result/
-    └── report.md               # Converted Markdown output
+    └── report.md                   # Converted Markdown output
 ```
 
 ## Usage
@@ -63,11 +64,15 @@ Open `converter.ipynb` and run the cells. This will:
 - Use Docling to convert `report.pdf` to Markdown
 - Save the output to `result/report.md`
 
-### Step 2: Compare Q&A Performance
+### Step 2: Q&A Performance
 
-Open `questions-and-answers.ipynb` and run all cells. This notebook:
-- Loads the raw PDF and converted Markdown
-- Asks the same question to both formats
+Open `questions-and-answers-pdf.ipynb` and run all cells. This notebook:
+- Loads the raw PDF
+- Asks a question about a table data
+
+Open `questions-and-answers-md.ipynb` and run all cells. This notebook:
+- Loads the converted Markdown
+- Asks the same question about a table data
 
 ## Key Functions
 
@@ -76,7 +81,7 @@ Open `questions-and-answers.ipynb` and run all cells. This notebook:
 - `load_pdf(file_path)`: Extracts text from PDF using PyPDF2
 - `ask_pdf(content, question)`: Queries raw PDF content using chunking
 - `load_markdown(markdown_path)`: Loads Markdown file content
-- `ask_markdown_simple(content, question)`: Queries Markdown content using chunking
+- `ask_markdown(content, question)`: Queries Markdown content using chunking
 - `initialize_environment()`: Loads OpenAI API key from config.env
 
 ### ProcessingFunctions.py
